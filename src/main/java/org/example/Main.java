@@ -29,7 +29,7 @@ public class Main {
         System.out.println("Аттракционы парка \"" + park.getName() + "\":");
         for (Park.Attraction attraction : attractions) {
             attraction.getInfo();
-            System.out.println("1");
+            System.out.println();
         }
     }
 }
