@@ -1,14 +1,27 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Park {
     private String parkName;
+    private List<Attraction> attractions = new ArrayList<>();
 
     public Park(String name) {
         parkName = name;
     }
 
-    public String getName() {
-        return parkName;
+    public void getInfo() {
+        System.out.println("Аттракционы парка \"" + parkName + "\":");
+        for (Attraction attraction : attractions) {
+            attraction.getInfo();
+            System.out.println();
+        }
+    }
+
+    public void newAttraction(String name, String openingHours, double price) {
+        Attraction attraction = new Attraction(name, openingHours, price);
+        attractions.add(attraction);
     }
 
     public class Attraction {

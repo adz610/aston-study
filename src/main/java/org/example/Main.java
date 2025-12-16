@@ -18,18 +18,11 @@ public class Main {
         }
 
         Park park = new Park("Knott's Berry Farm");
-        Park.Attraction[] attractions = {
-            park.new Attraction("Xcelerator", "10:00 - 22:00", 59.99),
-            park.new Attraction("GhostRider", "11:00 - 23:00", 65.99),
-            park.new Attraction("Supreme Scream", "9:00 - 21:30", 70),
-            park.new Attraction("Silver Bullet", "8:30 - 22:00", 54.99),
-            park.new Attraction("Jaguar!", "9:00 - 21:00", 49.99)
-        };
-
-        System.out.println("Аттракционы парка \"" + park.getName() + "\":");
-        for (Park.Attraction attraction : attractions) {
-            attraction.getInfo();
-            System.out.println();
-        }
+        park.newAttraction("Xcelerator", "10:00 - 22:00", 59.99);
+        park.newAttraction("GhostRider", "11:00 - 23:00", 65.99);
+        park.newAttraction("Supreme Scream", "9:00 - 21:30", 70);
+        park.newAttraction("Silver Bullet", "8:30 - 22:00", 54.99);
+        park.newAttraction("Jaguar!", "9:00 - 21:00", 49.99);
+        park.getInfo();
     }
 }
