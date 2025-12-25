@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Student {
     private final String name;
-    private final String group;
+    private String group;
     private int course;
     private final Map<String, Integer> grades;
 
