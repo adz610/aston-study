@@ -8,20 +8,20 @@ public class Main {
     public static void main(String[] args) {
         Set<Student> students = new HashSet<>();
         students.add(new Student("Иванов Иван", "ИТ11", 1, Map.of("Математика", 2,
-                                                                                     "Программирование", 3,
-                                                                                     "Физика", 2)));
+                                                                  "Программирование", 3,
+                                                                  "Физика", 2)));
 
         students.add(new Student("Цветкова Юлия", "ИТ11", 1, Map.of("Математика", 5,
-                                                                                       "Программирование", 4,
-                                                                                       "Физика", 3)));
+                                                                    "Программирование", 4,
+                                                                    "Физика", 3)));
 
         students.add(new Student("Смирнов Степан", "ИТ12", 1, Map.of("Математика", 4,
-                                                                                        "Программирование", 5,
-                                                                                        "Физика", 4)));
+                                                                     "Программирование", 5,
+                                                                     "Физика", 4)));
 
         students.add(new Student("Иванова Дарья", "ИТ12", 1, Map.of("Математика", 3,
-                                                                                       "Программирование", 3,
-                                                                                       "Физика", 3)));
+                                                                    "Программирование", 3,
+                                                                    "Физика", 3)));
         removeStudentsWithBadGrades(students);
         promoteStudentsWithGoodGrades(students);
         printStudents(students, 2);
