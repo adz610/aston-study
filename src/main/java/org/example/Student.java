@@ -6,7 +6,7 @@ public class Student {
     private final String name;
     private String group;
     private int course;
-    private final Map<String, Integer> grades;
+    private Map<String, Integer> grades;
 
     public Student(String name, String group, int course, Map<String, Integer> grades) {
         this.name = name;
