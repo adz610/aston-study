@@ -24,6 +24,5 @@ public class Main {
         park.newAttraction("Silver Bullet", "8:30 - 22:00", 54.99);
         park.newAttraction("Jaguar!", "9:00 - 21:00", 49.99);
         park.getInfo();
-        System.out.println();
     }
 }
