@@ -1,6 +1,6 @@
 package org.example;
 
-public class ComputerMouse {
+public class Product {
     private String name;
     private String productionDate;
     private String producer;
@@ -8,7 +8,7 @@ public class ComputerMouse {
     private double price;
     private boolean booked;
 
-    public ComputerMouse(String name, String productionDate, String producer, String countryOfOrigin, double price, boolean booked) {
+    public Product(String name, String productionDate, String producer, String countryOfOrigin, double price, boolean booked) {
         this.name = name;
         this.productionDate = productionDate;
         this.producer = producer;

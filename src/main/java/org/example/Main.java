@@ -2,12 +2,12 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        ComputerMouse[] mouses = {
-            new ComputerMouse("Logitech G Pro", "17.08.2023", "Logitech", "USA", 109.99, false),
-            new ComputerMouse("LAMZU Atlantis", "04.06.2024", "LAMZU", "China", 99.99, false),
-            new ComputerMouse("Hitscan Hyperlight", "11.07.2025", "Hitscan", "China", 89.99, true),
-            new ComputerMouse("Finalmouse ULX Frostlord", "27.11.2025", "Finalmouse", "Vietnam", 175, false),
-            new ComputerMouse("Razer Deathadder v2", "14.01.2020", "Razer", "Singapore", 59.99, true)
+        Product[] mouses = {
+            new Product("Logitech G Pro", "17.08.2023", "Logitech", "USA", 109.99, false),
+            new Product("LAMZU Atlantis", "04.06.2024", "LAMZU", "China", 99.99, false),
+            new Product("Hitscan Hyperlight", "11.07.2025", "Hitscan", "China", 89.99, true),
+            new Product("Finalmouse ULX Frostlord", "27.11.2025", "Finalmouse", "Vietnam", 175, false),
+            new Product("Razer Deathadder v2", "14.01.2020", "Razer", "Singapore", 59.99, true)
         };
 
         System.out.println("Список товаров:");
@@ -24,5 +24,6 @@ public class Main {
         park.newAttraction("Silver Bullet", "8:30 - 22:00", 54.99);
         park.newAttraction("Jaguar!", "9:00 - 21:00", 49.99);
         park.getInfo();
+        System.out.println();
     }
 }
