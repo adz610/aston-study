@@ -1,8 +1,10 @@
 package org.example;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -42,10 +44,12 @@ public class HomePage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
+    @Step("Переходим на домашнюю страницу сайта")
     public void open() {
         driver.get("https://www.mts.by/");
     }
 
+    @Step("Соглашаемся с предоставлением cookies")
     public void acceptCookies() {
         wait.until(
             ExpectedConditions.elementToBeClickable(
@@ -54,18 +58,21 @@ public class HomePage {
         ).click();
     }
 
+    @Step
     public String getPaymentBlockTitleText() {
         return driver.findElement(PAYMENT_BLOCK)
             .findElement(TITLE)
             .getText();
     }
 
+    @Step
     public List<WebElement> getPartnerLogos() {
         return driver.findElement(PAYMENT_BLOCK)
             .findElement(PARTNER_LOGOS)
             .findElements(By.tagName("img"));
     }
 
+    @Step
     public WebElement getContinueButton() {
         WebElement button = driver.findElement(PAYMENT_BLOCK)
             .findElement(OPENED_PAY_FORM)
@@ -75,6 +82,7 @@ public class HomePage {
         );
     }
 
+    @Step("Нажимаем на кнопку \"Подробнее о сервисе\"")
     public void clickAboutServiceButton() {
         WebElement button = driver.findElement(PAYMENT_BLOCK).findElement(ABOUT_SERVICE_BUTTON);
         wait.until(
@@ -82,14 +90,16 @@ public class HomePage {
         ).click();
     }
 
-    public void fillPhoneNumberField(String phoneNumber) {
+    @Step("Вводим номер: {number}")
+    public void fillPhoneNumberField(String number) {
         WebElement field = driver.findElement(PAYMENT_BLOCK)
             .findElement(OPENED_PAY_FORM)
             .findElement(NUMBER_FIELD);
         field.clear();
-        field.sendKeys(phoneNumber);
+        field.sendKeys(number);
     }
 
+    @Step("Вводим сумму: {sum}")
     public void fillSumField(String sum) {
         WebElement field = driver.findElement(PAYMENT_BLOCK)
             .findElement(OPENED_PAY_FORM)
@@ -98,6 +108,7 @@ public class HomePage {
         field.sendKeys(sum);
     }
 
+    @Step("Нажимаем на кнопку \"Продолжить\"")
     public void clickContinueButton() {
         wait.until(
             ExpectedConditions.elementToBeClickable(
@@ -106,6 +117,7 @@ public class HomePage {
         ).click();
     }
 
+    @Step
     public void switchToPaymentForm() {
         driver.switchTo().frame(
             wait.until(
@@ -114,6 +126,7 @@ public class HomePage {
         );
     }
 
+    @Step
     public String getPaymentFormDescriptionText() {
         return Objects.requireNonNull(
             wait.until(
@@ -122,6 +135,7 @@ public class HomePage {
         ).getText();
     }
 
+    @Step("Нажимаем на кнопку со всплывающим меню и переключаемся на {id} тип формы")
     public void selectPaymentTab (int id) {
         WebElement button = driver.findElement(PAYMENT_BLOCK).findElement(TAB_SELECT_BUTTON);
         wait.until(
@@ -134,6 +148,7 @@ public class HomePage {
         ).click();
     }
 
+    @Step
     public String getNumberFieldPlaceholder() {
         WebElement field = driver.findElement(PAYMENT_BLOCK)
             .findElement(OPENED_PAY_FORM)
@@ -145,6 +160,7 @@ public class HomePage {
         ).getAttribute("placeholder");
     }
 
+    @Step
     public String getSumFieldPlaceholder() {
         WebElement field = driver.findElement(PAYMENT_BLOCK)
             .findElement(OPENED_PAY_FORM)
@@ -156,6 +172,7 @@ public class HomePage {
         ).getAttribute("placeholder");
     }
 
+    @Step
     public String getEmailFieldPlaceholder() {
         WebElement field = driver.findElement(PAYMENT_BLOCK)
             .findElement(OPENED_PAY_FORM)
@@ -167,6 +184,7 @@ public class HomePage {
         ).getAttribute("placeholder");
     }
 
+    @Step
     public String getPaymentFormSumText() {
         return Objects.requireNonNull(
             wait.until(
@@ -175,6 +193,7 @@ public class HomePage {
         ).getText();
     }
 
+    @Step
     public String getPaymentFormSubmitButtonText() {
         return Objects.requireNonNull(
             wait.until(
@@ -183,6 +202,7 @@ public class HomePage {
         ).getText();
     }
 
+    @Step
     public String getPaymentFormCardNumberLabel() {
         return Objects.requireNonNull(
             wait.until(
@@ -191,6 +211,7 @@ public class HomePage {
         ).getText();
     }
 
+    @Step
     public String getPaymentFormCardExpirationDateLabel() {
         return Objects.requireNonNull(
             wait.until(
@@ -199,6 +220,7 @@ public class HomePage {
         ).getText();
     }
 
+    @Step
     public String getPaymentFormCardCVCLabel() {
         return Objects.requireNonNull(
             wait.until(
@@ -207,6 +229,7 @@ public class HomePage {
         ).getText();
     }
 
+    @Step
     public String getPaymentFormCardHolderLabel() {
         return Objects.requireNonNull(
             wait.until(
@@ -215,6 +238,7 @@ public class HomePage {
         ).getText();
     }
 
+    @Step
     public List<WebElement> getPaymentFormPartnerLogos() {
         WebElement container = wait.until(
             ExpectedConditions.visibilityOfElementLocated(CARD_PARTNER_LOGOS)

@@ -1,3 +1,5 @@
+import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import org.example.HomePage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
@@ -11,11 +13,14 @@ import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Feature("Блок \"Онлайн пополнение без комиссии\"")
+@DisplayName("Проверка блока \"Онлайн пополнение без комиссии\"")
 public class PaymentBlockTest {
     private WebDriver driver;
     private HomePage homePage;
 
     @BeforeEach
+    @Step("Инициализация драйвера")
     void setUp() {
         driver = new ChromeDriver();
         homePage = new HomePage(driver);
@@ -24,16 +29,19 @@ public class PaymentBlockTest {
     }
 
     @AfterEach
+    @Step("Завершение работы драйвера")
     void tearDown() {
         driver.quit();
     }
 
     @Test
+    @DisplayName("Проверка названия")
     void checkBlockTitle() {
         assertEquals("Онлайн пополнение\nбез комиссии", homePage.getPaymentBlockTitleText());
     }
 
     @Test
+    @DisplayName("Проверка отображения логотипов партнёров")
     void checkPartnerLogos() {
         for (WebElement logo : homePage.getPartnerLogos()) {
             assertTrue(logo.isDisplayed());
@@ -41,12 +49,14 @@ public class PaymentBlockTest {
     }
 
     @Test
+    @DisplayName("Проверка кнопки \"Подробнее о сервисе\"")
     void aboutServiceButtonTest() {
         homePage.clickAboutServiceButton();
         assertTrue(Objects.requireNonNull(driver.getCurrentUrl()).contains("help/poryadok-oplaty-i-bezopasnost-internet-platezhey"));
     }
 
     @Test
+    @DisplayName("Проверка кнопки \"Продолжить\" после заполнения обязательных полей")
     void continueButtonTest() {
         String phoneNumber = "297777777";
         String expectedDescription = "Оплата: Услуги связи Номер:375" + phoneNumber;
@@ -60,6 +70,7 @@ public class PaymentBlockTest {
     }
 
     @Test
+    @DisplayName("Проверка плейсхолдеров")
     void checkPlaceholders() {
         for (int i = 1; i <= 4; i++) {
             homePage.selectPaymentTab(i);
@@ -83,6 +94,7 @@ public class PaymentBlockTest {
     }
 
     @Test
+    @DisplayName("Проверка корректности отображаемой информации в модальном окне")
     void checkPaymentForm() {
         String phoneNumber = "297777777";
         String sum = "249.99";
